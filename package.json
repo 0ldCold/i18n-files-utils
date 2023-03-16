@@ -4,7 +4,7 @@
   "scripts": {
     "build": "tsc -p ."
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "GPL-3.0",
   "main": "./dist/index.js",
   "bin": "./dist/index.js",
   "files": [
