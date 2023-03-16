@@ -1,6 +1,7 @@
 {
   "name": "i18n-files-utils",
   "version": "1.0.2",
+
   "scripts": {
     "build": "tsc -p ."
   },
