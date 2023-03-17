@@ -1,6 +1,6 @@
 {
   "name": "i18n-files-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
 
   "scripts": {
     "build": "tsc -p ."
@@ -22,6 +22,12 @@
   "engines": {
     "node": ">=16.15.0"
   },
+  "keywords": [
+    "csv",
+    "json",
+    "i18n",
+    "cli"
+  ],
   "author": "Ilya Susskiy <susskij14@gmail.com>",
   "packageManager": "yarn@1.22.19",
   "dependencies": {
