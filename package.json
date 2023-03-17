@@ -1,11 +1,11 @@
 {
   "name": "i18n-files-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
 
   "scripts": {
     "build": "tsc -p ."
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "main": "./dist/index.js",
   "bin": "./dist/index.js",
   "files": [
