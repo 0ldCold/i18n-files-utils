@@ -1,10 +1,8 @@
-import { csvToObj } from "./utils/csvUtils";
-import { unflattenObj } from "./utils/objectTransforms";
 import { writeFile } from "./utils/fileUtils";
+import { Translation } from "./Translation/Translation";
 
 export function makeTranslationFileFromCsv(fileInputName: string, fileOutputName: string): void {
-  const json = csvToObj(fileInputName);
-  const transformedJson = unflattenObj(json);
-
-  writeFile(fileOutputName, JSON.stringify(transformedJson));
+  const translation = new Translation(fileInputName);
+  const stringifyTranslationJson = JSON.stringify(translation.unflatten());
+  writeFile(fileOutputName, stringifyTranslationJson);
 }

@@ -1,15 +1,9 @@
-import { readFile, writeFile } from "./utils/fileUtils";
-import { flattenObj } from "./utils/objectTransforms";
+import { writeFile } from "./utils/fileUtils";
 import { objToCsvString } from "./utils/csvUtils";
-import { checkJsonIsTranslationFile } from "./utils/guards";
+import { Translation } from "./Translation/Translation";
 
 export function makeCsvFromTranslationFile(fileInputName: string, fileOutputName: string): void {
-  const data = readFile(fileInputName);
-  const json = JSON.parse(data);
-  const transformedJson = flattenObj(json);
-  if (!checkJsonIsTranslationFile(transformedJson)) {
-    throw new Error("Не валидный JSON");
-  }
-  const stringifyCsv = objToCsvString(transformedJson);
+  const translation = new Translation(fileOutputName);
+  const stringifyCsv = objToCsvString(translation.flatten());
   writeFile(fileOutputName, stringifyCsv);
 }
