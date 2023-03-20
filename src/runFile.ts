@@ -71,7 +71,7 @@ export const run = (): void => {
         throw new Error("Не указал путь до исходного файла (--input=path)");
       }
       if (!Args.merged || typeof Args.merged != "string") {
-        throw new Error("Не указал путь до сливаемого файла (--reference=path)");
+        throw new Error("Не указал путь до сливаемого файла (--merged=path)");
       }
       if (!Args.output || typeof Args.output != "string") {
         throw new Error("Не указал путь до итогового файла (--output=path)");
