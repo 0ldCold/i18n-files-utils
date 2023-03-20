@@ -2,11 +2,13 @@ import mri from "mri";
 import { makeCsvFromTranslationFile } from "./makeCsvFromTranslationFile";
 import { makeTranslationFileFromCsv } from "./makeTranslationFileFromCsv";
 import { compareTranslationFiles } from "./compareTranslationFiles";
+import { mergeTranslation } from "./mergeTranslation";
 
 enum UtilsType {
   makeCsv = "makeCsv",
   makeI18n = "makeI18n",
-  compare = "compare"
+  compare = "compare",
+  merge = "merge"
 }
 const types = Object.values(UtilsType).join("/");
 const isUtilsType = (str: string): str is UtilsType => {
@@ -17,6 +19,7 @@ interface Arguments {
   input?: string;
   output?: string;
   reference?: string;
+  merged?: string;
 }
 
 export const run = (): void => {
@@ -61,6 +64,19 @@ export const run = (): void => {
         throw new Error("Не указал путь до итогового файла (--output=path)");
       }
       compareTranslationFiles(Args.reference, Args.input, Args.output);
+      return;
+    }
+    case UtilsType.merge: {
+      if (!Args.input || typeof Args.input != "string") {
+        throw new Error("Не указал путь до исходного файла (--input=path)");
+      }
+      if (!Args.merged || typeof Args.merged != "string") {
+        throw new Error("Не указал путь до сливаемого файла (--reference=path)");
+      }
+      if (!Args.output || typeof Args.output != "string") {
+        throw new Error("Не указал путь до итогового файла (--output=path)");
+      }
+      mergeTranslation(Args.input, Args.merged, Args.output);
       return;
     }
     default: {
