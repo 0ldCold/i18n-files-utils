@@ -44,3 +44,11 @@ export const compareTranslation = (
   });
   return outerFile;
 };
+export const mergeTranslation = (
+  defaultTranslation: FlattedTranslationFile,
+  mergedTranslation: FlattedTranslationFile
+): FlattedTranslationFile => {
+  const result: FlattedTranslationFile = { ...defaultTranslation, ...mergedTranslation };
+
+  return result;
+};

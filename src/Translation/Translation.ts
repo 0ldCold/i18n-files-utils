@@ -1,5 +1,11 @@
 import { FlattedTranslationFile } from "../utils/types";
-import { checkIsJson, compareTranslation, CsvToTranslation, JsonToTranslation } from "./utils";
+import {
+  checkIsJson,
+  compareTranslation,
+  CsvToTranslation,
+  JsonToTranslation,
+  mergeTranslation
+} from "./utils";
 import { unflattenObj } from "../utils/objectTransforms";
 
 export class Translation {
@@ -24,5 +30,8 @@ export class Translation {
   }
   compare(comparable: Translation): Translation {
     return new Translation(compareTranslation(this.value, comparable.flatten()));
+  }
+  merge(merged: Translation): Translation {
+    return new Translation(mergeTranslation(this.value, merged.flatten()));
   }
 }
