@@ -27,8 +27,7 @@
 /.swc/
 
 # production
-/build
-/public/dist
+/dist
 
 # misc
 .DS_Store

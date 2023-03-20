@@ -3,7 +3,9 @@
   "version": "1.0.4",
 
   "scripts": {
-    "build": "tsc -p ."
+    "prepublishOnly": "yarn build",
+    "build": "tsc -p .",
+    "types": "tsc --noEmit && eslint -c .eslintrc.json"
   },
   "license": "MIT",
   "main": "./dist/index.js",
