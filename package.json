@@ -1,11 +1,11 @@
 {
   "name": "i18n-files-utils",
   "version": "1.0.4",
-
   "scripts": {
     "prepublishOnly": "yarn build",
     "build": "tsc -p .",
-    "types": "tsc --noEmit && eslint -c .eslintrc.json"
+    "types": "tsc --noEmit && eslint -c .eslintrc.json",
+    "prepare": "husky install"
   },
   "license": "MIT",
   "main": "./dist/index.js",
@@ -45,6 +45,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
     "prettier": "^2.8.0",
     "prettier-eslint": "^15.0.1",
     "ts-node": "^10.9.1",
